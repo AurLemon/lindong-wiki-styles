@@ -1,0 +1,170 @@
+.infobox-card {
+    border-radius: 12px;
+    background-color: var(--color-surface-2);
+    box-shadow: var(--box-shadow-card);
+    width: 100%;
+    max-width: 250px;
+    float: right;
+    clear: right;
+    padding: 16px;
+    margin: 0 0 var(--space-lg) var(--space-lg);
+}
+
+.infobox-card ul {
+    margin: 0;
+    padding: 0;
+}
+
+.infobox-card li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.infobox-card .station-list .line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 8px;
+    height: 100%;
+    border-radius: 10px;
+    margin: 0 4px;
+}
+
+.infobox-card .station-list {
+    position: relative;
+    padding: 6px 0;
+}
+
+.infobox-card .station-list li {
+    padding-left: 22px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.infobox-card .station-list .transfer {
+    display: flex;
+    gap: 5px;
+    margin-left: 15px;
+}
+
+.infobox-card .station-list .transfer div {
+    border-radius: 7px;
+    padding: 2px;
+    color: white;
+    font-size: 12px;
+}
+
+.infobox-card .station-list li .name .circle {
+    position: absolute;
+    left: 0;
+    top: 10px;
+    transform: translate(-5%,25%);
+    width: 10px;
+    height: 10px;
+    background-color: var(--color-surface-2);
+    border-radius: 50%;
+}
+
+.infobox-card .station-list li .name {
+    padding: 10px 0;
+    letter-spacing: 1px;
+    color: var(--color-base--emphasized);
+}
+
+.infobox-card .station-list .direction {
+	position: absolute;
+    right: 0;
+    letter-spacing: 2px;
+    font-size: 14px;
+    top: -6px;
+    color: var(--color-base--subtle);
+    z-index: 1;
+}
+
+.infobox-card .station-list .direction::after {
+	content: "↓";
+	margin-left: 5px;
+}
+
+.infobox-card .header .line-name {
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.infobox-card .header .detail .company {
+    text-align: center;
+    font-size: 13px;
+}
+
+.infobox-card .header .time {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 12px;
+    justify-content: center;
+    margin: 10px 0;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--color-surface-3);
+}
+
+.infobox-card .header .time .last-train,
+.infobox-card .header .time .ticket {
+	margin-left: 10px;
+}
+
+.infobox-card .header .time .first-train::before {
+    content: "首";
+    padding: 2px;
+    color: white;
+    background-color: green;
+    border-radius: 2px;
+    margin-right: 2px;
+    transform: scale(0.8);
+    display: inline-block;
+}
+
+.infobox-card .header .time .last-train::before {
+    content: "末";
+    padding: 2px;
+    color: white;
+    background-color: orange;
+    border-radius: 2px;
+    margin-right: 2px;
+    transform: scale(0.8);
+    display: inline-block;
+}
+
+.infobox-card .header .time .ticket::before {
+    content: "票";
+    padding: 2px;
+    color: white;
+    background-color: cadetblue;
+    border-radius: 2px;
+    margin-right: 2px;
+    transform: scale(0.8);
+    display: inline-block;
+}
+
+.infobox-card .station-list li .dir-tag__up::after,
+.infobox-card .station-list li .dir-tag__down::after{
+	position: absolute;
+	right: 0;
+	color: var(--color-base--emphasized);
+}
+
+.infobox-card .station-list li .dir-tag__up::after {
+	content: "▲";
+}
+
+.infobox-card .station-list li .dir-tag__down::after {
+	content: "▼";
+}
+
+@media (max-width: 720px) {
+    .infobox-card {
+        float: unset;
+        margin: 0 auto;
+    }
+}
