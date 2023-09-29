@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>福州地铁一号线站点信息</title>
+    <style>
+        :root {
+            --color-surface-2: hsl(210,17%,98%);
+        }
+
+        .infobox-card {
+            border-radius: 12px;
+            background-color: var(--color-surface-2);
+            box-shadow: var(--box-shadow-card);
+            width: 100%;
+            max-width: 300px;
+            float: right;
+            padding: 16px;
+            margin: 0;
+        }
+
+        .infobox-card ul {
+            margin: 0;
+            padding: 0;
+        }
+
+        .infobox-card li {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .line {
+            position: absolute;
+            left: 0;
+            width: 14px;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        .station-list {
+            position: relative;
+            margin-top: 5px!important;
+        }
+
+        .station-list li {
+            padding-left: 22px;
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .station-list .transfer {
+            display: flex;
+            gap: 5px;
+            margin-left: 8px;
+        }
+
+        .station-list .transfer div {
+            border-radius: 8px;
+            font-size: 8px;
+            padding: 4px;
+            color: white;
+        }
+
+        .station-list li .name::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            transform: translate(40%, 60%);
+            width: 10px;
+            height: 10px;
+            background-color: white;
+            z-index: 20;
+            border-radius: 50%;
+        }
+
+        .station-list li .name {
+            padding: 10px 0;
+        }
+
+        .header .line-name {
+            text-align: center;
+        }
+
+        .header .detail .company {
+            text-align: center;
+            font-size: 13px;
+        }
+
+        .header .time {
+            display: flex;
+            color: var(--color-surface-3);
+            font-size: 12px;
+            justify-content: center;
+            gap: 10px;
+            margin: 10px 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--color-surface-3);
+        }
+
+        .header .time .first-train::before {
+            content: "首";
+            padding: 2px;
+            font-size: 10px;
+            color: white;
+            background-color: green;
+            border-radius: 2px;
+            margin-right: 2px;
+        }
+
+        .header .time .last-train::before {
+            content: "末";
+            padding: 2px;
+            font-size: 10px;
+            color: white;
+            background-color: orange;
+            border-radius: 2px;
+            margin-right: 2px;
+        }
+
+
+        @media (max-width: 720px) {
+            .infobox-card {
+                float: unset;
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="infobox-card">
+        <div class="header">
+            <div class="line-name">临东地铁一号线</div>
+            <div class="detail">
+                <div class="company">临东地铁集团有限公司</div>
+            </div>
+            <div class="time">
+                <div class="first-train">06:00</div>
+                <div class="last-train">23:00</div>
+            </div>
+        </div>
+        <ul class="station-list">
+            <div class="line" style="background-color: yellowgreen;"></div>
+            <li>
+                <div class="name">城海湾</div>
+                <div class="transfer">
+                    <div style="background-color: red;">六号线</div>
+                </div>
+            </li>
+            <li>
+                <div class="name">冰岭西路</div>
+                <div class="transfer">
+                </div>
+            </li>
+            <li>
+                <div class="name">忌城路</div>
+                <div class="transfer">
+                </div>
+            </li>
+            <li>
+                <div class="name">海洋基地</div>
+                <div class="transfer">
+                </div>
+            </li>
+            <li>
+                <div class="name">重工街</div>
+                <div class="transfer">
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
