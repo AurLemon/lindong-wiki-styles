@@ -4,9 +4,10 @@
 		"AurLemon"
 	],
     "version": "0.0.1",
-	"descriptionmsg": "Get Lindong Server Status.",
-	"url": "https://github.com/AurLemon/MediaWiki-extensions-EditGPT",
+	"descriptionmsg": "lds-desc",
+	"url": "https://github.com/AurLemon/Lindong_Wiki_Project",
 	"license-name": "GPL-2.0-or-later",
+	"type": "api",
 	"requires": {
 		"MediaWiki": ">= 1.35.0"
 	},
@@ -16,6 +17,16 @@
 	"ResourceFileModulePaths": {
 		"localBasePath": "",
 		"remoteExtPath": "GetLindongStatus"
+	},
+	"ResourceModules": {
+		"ext.LindongStatus": {
+            "messages": [
+				"lds-desc",
+			    "apihelp-lindongrequest-summary",
+                "apihelp-lindongrequest-param-address",
+                "apihelp-lindongrequest-param-port"
+			]
+		}
 	},
     "APIModules": {
         "lindongrequest": "Request"

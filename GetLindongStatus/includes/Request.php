@@ -1,36 +1,46 @@
 <?php
 
 use ApiBase;
-use Curl\Curl;
 
 class Request extends ApiBase {
     public function execute() {
         $params = $this->extractRequestParams();
         $address = $params['address'];
         $port = $params['port'];
-
+    
         $apiUrl = "https://motd.imc.re/api?host=" . $address . ":" . $port;
-
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $apiUrl);
+    
+        $ch = curl_init($apiUrl);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
     
-        if (curl_errno($ch)) {
-            throw new Exception("Request failed: " . curl_error($ch) . ".");
+        if ($response === false) {
+            $result = [
+                'status' => 'CURL Error: ' . curl_error($ch)
+            ];
         } else {
-            $data = json_decode($response, true);
-            $result = array(
-                'status' => $data['status'],
-                'online' => $data['online'],
-                'max' => $data['max'],
-                'version' => $data['version'],
-                'motd' => $data['motd']
-            );
-        }
-        curl_close($ch);
+            $responseData = json_decode($response, true);
     
-        return $result;
+            if ($responseData === null) {
+                $result = [
+                    'status' => 'JSON Decoding Error'
+                ];
+            } else {
+                $result = [
+                    'status' => $responseData['status'],
+                    'online' => $responseData['online'],
+                    'max' => $responseData['max'],
+                    'version' => $responseData['version'],
+                    'motd' => $responseData['motd'],
+                    'delay' => $responseData['delay']
+                ];
+            }
+        }
+        
+        curl_close($ch);
+        $this->getResult()->addValue(null, $this->getModuleName(), $result);
     }
     
     public function getAllowedParams() {
